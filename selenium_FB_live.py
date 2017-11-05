@@ -1,13 +1,16 @@
 
 # coding: utf-8
 
-# In[ ]:
+# In[16]:
 
 from selenium import webdriver
 import time
+import os
 
 #環境設定
-chrome_path=input("chrome_path")
+chrome_path=os.getcwd()
+chrome_path+="\\chromedriver.exe"
+
 n=int(input("開啟帳號數量"))
 url=input("直播URL")
 
@@ -28,7 +31,5 @@ for i in range(n):
     pass_input = web[i].find_element_by_id("pass")
     pass_input.send_keys(pass_list[i])
     web[i].find_element_by_id("loginbutton").click()
-    web[i].get(url)    
-    
-time.sleep(5)
+    web[i].get(url)
 
